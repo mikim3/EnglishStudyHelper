@@ -1,0 +1,41 @@
+<h1 class="center">Sentence Data for
+  <%= sentence.sentenceK %>
+</h1>
+
+<table class="table">
+  <tr>
+    <th>sentenceK</th>
+    <td>
+      <%= sentence.sentenceK %>
+    </td>
+  </tr>
+  <tr>
+    <th>sentenceE</th>
+    <td>
+      <%= sentence.sentenceE%>
+    </td>
+  </tr>
+  <!-- <tr>
+    <th>Max Students</th>
+    <td>
+      <%= sentence.maxStudents%>
+    </td>
+  </tr>
+  <tr>
+    <th>Cost</th>
+    <td>$
+      <%= sentence.cost%>
+    </td>
+  </tr> -->
+</table>
+<div>
+  <a class="button" href="<%=`/sentences/${sentence._id}/edit`%>">
+    Edit Sentence Details
+  </a>
+</div>
+<div>
+  <a class="button" href="<%= `/sentences/${sentence._id}/delete?_method=DELETE` %>" onclick="return confirm('Are you sure you want to delete this record?')" a>Delete</a>
+</div>
+<div>
+  <a class="button" href="/sentences">View all sentences</a>
+</div>

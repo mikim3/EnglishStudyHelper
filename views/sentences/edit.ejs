@@ -1,0 +1,11 @@
+<div class="data-form">
+  <form class="form-signin" action="<%=`/sentences/${sentence._id}/update?_method=PUT`%>" method="POST">
+    <h2 class="form-signin-heading">Edit sentence:</h2>
+    <label for="inputSentenceK">한글</label>
+    <input type="text" name="sentenceK" id="inputSentenceK" class="form-control" value="<%= sentence.sentenceK %>" placeholder="SentenceK" autofocus>
+    <label for="inputSentenceE">영어</label>
+    <input type="text" name="sentenceE" id="inputSentenceE" class="form-control" value="<%= sentence.sentenceE %>" placeholder="SentenceE">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+  </form>
+  
+</div>

@@ -128,13 +128,6 @@ module.exports = {
       })
       .trim();
     req.check("email", "Email is invalid").isEmail();
-    req
-      .notEmpty()
-      .isInt()
-      .isLength({
-        min: 5,
-        max: 5
-      })
     req.check("password", "Password cannot be empty").notEmpty();
     req.getValidationResult().then(error => {
       if (!error.isEmpty()) {
