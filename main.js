@@ -31,7 +31,7 @@ app.use(
 
 app.use(morgan("combined"));
 app.use(layouts);
-app.use(express.static("public"));
+app.use(express.static("public"));  //public 폴더가 static 폴더다
 app.use(expressValidator());
 app.use(
   express.urlencoded({
