@@ -15,11 +15,6 @@ var subscriberSchema = new Schema(
       lowercase: true,
       unique: true
     },
-    zipCode: {
-      type: Number,
-      min: [10000, "Zip code too short"],
-      max: 99999
-    },
     courses: [
       {
         type: Schema.Types.ObjectId,
@@ -33,7 +28,7 @@ var subscriberSchema = new Schema(
 );
 
 subscriberSchema.methods.getInfo = function() {
-  return `Name: ${this.name} Email: ${this.email} Zip Code: ${this.zipCode}`;
+  return `Name: ${this.name} Email: ${this.email}`;
 };
 
 module.exports = mongoose.model("Subscriber", subscriberSchema);

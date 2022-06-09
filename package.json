@@ -1,12 +1,12 @@
 {
-  "name": "confetti_cuisine",
+  "name": "eng_helper",
   "version": "1.0.0",
-  "description": "A site for booking classes for cooking.",
+  "description": "A site for studing for english.",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jon Wexler",
+  "author": "minsu",
   "license": "ISC",
   "dependencies": {
     "connect-flash": "^0.1.1",

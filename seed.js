@@ -4,15 +4,17 @@ const mongoose = require("mongoose"),
   Course = require("./models/course");
 mongoose.Promise = global.Promise;
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost:27017/confetti_cuisine",
+  process.env.MONGODB_URI || "mongodb://localhost:27017/eng_helper",
   { useNewUrlParser: true, useFindAndModify: false }
 );
-
-Course.deleteMany({}).then(() => {
+//다 없애고 나서 다음 문장 실행
+Course.deleteMany({}).then(() => {     
     return Course.create({
-      title: "Chocolate World",
+      title: "my sentence",
       description: "Dive into the divine world of sweet and bitter chocolate making.",
-      cost: 22,
+      cost: 12,
+      sentenceK: "안녕하세요",
+      sentenceE: "hello",
       maxStudents: 14
     });
   }).then(course => console.log(course.title)).then(() => {
