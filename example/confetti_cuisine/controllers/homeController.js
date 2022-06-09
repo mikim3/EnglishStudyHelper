@@ -6,5 +6,8 @@ module.exports = {
   },
   chat: (req, res) => {
     res.render("chat");
+  },
+  chatx: (req, res) => {
+    res.render("chat");
   }
 };

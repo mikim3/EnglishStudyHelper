@@ -4,6 +4,8 @@ const router = require("express").Router(),
   usersController = require("../controllers/usersController");
 
 router.get("/", usersController.index, usersController.indexView);
+router.get("/index", usersController.index);
+router.get("/indexView", usersController.indexView);
 router.get("/new", usersController.new);
 router.post(
   "/create",

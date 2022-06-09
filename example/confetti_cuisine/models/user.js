@@ -51,7 +51,7 @@ userSchema.pre("save", function(next) {
       email: user.email
     })
       .then(subscriber => {
-        user.subscribedAccount = subscriber;
+        user.subscribedAccount = subscriber;  // 사용자가 생성될 때 마다 구독자 계정과 연결 
         next();
       })
       .catch(error => {

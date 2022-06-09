@@ -27,9 +27,10 @@ module.exports = {
       });
   },
   indexView: (req, res) => {
-    res.render("users/index");
+    res.render("users/index"); //  views/users/index.ejs
   },
 
+  //새로운 사용자
   new: (req, res) => {
     res.render("users/new");
   },
