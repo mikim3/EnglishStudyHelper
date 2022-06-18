@@ -2,17 +2,12 @@
 
 const router = require("express").Router(),
   userRoutes = require("./userRoutes"),
-  subscriberRoutes = require("./subscriberRoutes"),
-  courseRoutes = require("./courseRoutes"),
   sentenceRoutes = require("./sentenceRoutes"),
   errorRoutes = require("./errorRoutes"),
-  homeRoutes = require("./homeRoutes"),
-  apiRoutes = require("./apiRoutes");
+  homeRoutes = require("./homeRoutes");
 
-router.use("/api", apiRoutes);
+//router 설정 userRoutes안에 경로는 이제 앞에 /users가 붙음 다른 것도 마찬가지
 router.use("/users", userRoutes);
-router.use("/subscribers", subscriberRoutes);
-router.use("/courses", courseRoutes);
 router.use("/sentences", sentenceRoutes);
 router.use("/", homeRoutes);
 router.use("/", errorRoutes);

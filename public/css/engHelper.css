@@ -61,14 +61,14 @@ a {
   color: #ed4a0f;
 }
 
-.subscriber {
+/* .subscriber {
   padding: 10px 0px;
   border-bottom: 1px solid lightgray;
 }
 
 .subscriber p {
   margin: 0;
-}
+} */
 
 .list-container {
   padding: 0 20px;
@@ -172,41 +172,6 @@ button[type="submit"] {
   font-family: "Baloo Bhaina";
   color: #625956;
   font-weight: 100;
-}
-
-.course-title {
-  font-family: "Baloo Bhaina";
-  padding: 0 5px;
-  font-size: 20px;
-  border-radius: 10px;
-  margin-top: 10px;
-  display: inline-block;
-  float: left;
-}
-
-.course-description {
-  padding: 10px 10px 20px 10px;
-  text-align: left;
-  margin: 0 10px;
-  clear: left;
-}
-
-.course-title::before {
-  background-image: url("../images/icon.png");
-  background-size: 20px 40px;
-  display: inline-block;
-  width: 20px;
-  height: 40px;
-  content: "";
-}
-
-.course-cost {
-  display: inline-block;
-  position: absolute;
-  right: 35px;
-  margin-top: 60px;
-  font-family: "Baloo Bhaina";
-  font-size: 18px;
 }
 
 .modal-body {

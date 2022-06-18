@@ -1,5 +1,7 @@
 "use strict";
+// 사용자가 입력한 문장과 관련된 컨트롤러
 
+// models에서 DB구조를 받아옴
 const Sentence = require("../models/sentence"),
   httpStatus = require("http-status-codes"),
   User = require("../models/user"),
@@ -31,6 +33,7 @@ module.exports = {
   },
 
   create: (req, res, next) => {
+    //
     let sentenceParams = getSentenceParams(req.body);
     Sentence.create(sentenceParams)
       .then(sentence => {
@@ -166,5 +169,11 @@ module.exports = {
     } else {
       next(new Error("User must log in."));
     }
+  },
+  // 구글번역 미완
+  translate: (req, res, next) => {
+    translate(req.body.text, {to:'ko'} ).then(r=>{
+      res.json(r);
+    })
   }
 };

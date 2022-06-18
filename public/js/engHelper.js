@@ -50,51 +50,42 @@ $(document).ready(() => {
     if (userId === id) return "current-user";
     else return "";
   };
-
-  $("#modal-button").click(() => {
-    $(".modal-body").html("");
-    $.get(`/api/courses`, (results = {}) => {
-      let data = results.data;
-      if (!data || !data.courses) return;
-      data.courses.forEach(course => {
-        $(".modal-body").append(
-          `<div>
-						<span class="course-title">
-							${course.title}
-						</span>
-						<span class="course-cost">$${course.cost}</span>
-						<button class="${course.joined ? "joined-button" : "join-button"} btn btn-info btn-sm" data-id="${
-            course._id
-          }">
-							${course.joined ? "Joined" : "Join"}
-						</button>
-						<div class="course-description">
-							${course.description}
-						</div>
-					</div>`
-        );
-      });
-    }).then(() => {
-      addJoinButtonListener();
-    });
-  });
 });
 
-let addJoinButtonListener = () => {
-  $(".join-button").click(event => {
-    let $button = $(event.target),
-      courseId = $button.data("id");
-    console.log(`/api/courses/${courseId}/join`);
-    $.get(`/api/courses/${courseId}/join`, (results = {}) => {
-      let data = results.data;
-      if (data && data.success) {
-        $button
-          .text("Joined")
-          .addClass("joined-button")
-          .removeClass("join-button");
-      } else {
-        $button.text("Try again");
-      }
-    });
-  });
-};
+// 번역기 js
+// 문장 : 선택
+// 미완
+let prevText = null;
+let prevPopover = null;
+$(".translate").click((e) => {
+
+    let text = $(e.target).text();
+    // $(e.target).outerHTML
+    // $(e.target).append(text);
+
+    let popcnt = $(".popover").length;
+    if (popcnt == 1) {
+        prevPopover.popover('dispose');
+        $(".translate").removeClass('bg-dark text-white');
+    }
+
+
+    let currText = $(e.target).text();
+    if (prevText != currText) {
+
+        $.post('/translate', { text: text }, (res) => {
+            $(e.target).addClass('bg-dark text-white');
+            prevPopover = $(e.target).popover({
+                content: res.text,
+                placement: 'bottom'
+            });
+            prevPopover.popover('show');
+            $(".popover-body").addClass('text-danger');
+            prevText = currText;
+        }, 'json');
+
+    } else {
+        $(".popover").hide();
+        prevText = -1;
+    }
+});

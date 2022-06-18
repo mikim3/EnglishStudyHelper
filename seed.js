@@ -1,7 +1,6 @@
 "use strict";
 
 const mongoose = require("mongoose"),
-  Course = require("./models/course"),
   Sentence = require("./models/sentence");
 mongoose.Promise = global.Promise;
 mongoose.connect(
